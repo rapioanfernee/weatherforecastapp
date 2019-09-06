@@ -1,0 +1,19 @@
+.forecast {
+  background-color: transparent;
+  // border-radius: 4px;
+  // max-width: 512px;
+  // width: 90%;
+
+  // overflow: scroll;
+
+  position: relative;
+  margin: 64px 0;
+
+  &-hourly-container {
+    max-width: 1024px;
+    padding: 16px;
+    display: flex;
+    padding: 16px 8px 16px 16px;
+    flex-wrap: wrap;
+  }
+}

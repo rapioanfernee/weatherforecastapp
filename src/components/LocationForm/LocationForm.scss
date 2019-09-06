@@ -1,0 +1,26 @@
+.locationform {
+  max-width: 250px;
+  max-height: 150px;
+  background-color: transparent;
+  border-radius: 4px;
+  height: 90%;
+  width: 90%;
+  padding: 32px;
+  // margin: 32px 0;
+  &-container {
+    display: flex;
+    flex-direction: column;
+    input {
+      background: transparent;
+      margin-bottom: 32px;
+      padding: 4px;
+      font-family: "Montserrat", sans-serif;
+      border-radius: 2px;
+    }
+    button {
+      width: 50%;
+      align-self: center;
+      font-family: "Montserrat", sans-serif;
+    }
+  }
+}

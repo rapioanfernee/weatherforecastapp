@@ -1,0 +1,22 @@
+.forecast-hourly {
+  margin-right: 16px;
+  margin-bottom: 16px;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 8px;
+  width: 128px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.5);
+  &-time {
+    font-size: 1.3rem;
+    margin-right: 8px;
+  }
+  &-temperature {
+    font-size: 0.9rem;
+  }
+  &-rain {
+    margin-top: 8px;
+    font-size: 0.9rem;
+  }
+}

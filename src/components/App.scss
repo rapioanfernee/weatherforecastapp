@@ -1,0 +1,129 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.container {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+
+  &-app {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-cloudy-night {
+      background-image: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.05),
+          rgba(255, 255, 255, 0.05)
+        ),
+        url("/images/cloudy-pm.jpg");
+      background-position: center;
+      background-size: cover;
+      color: rgba(255, 255, 255, 0.85);
+      input {
+        color: rgba(255, 255, 255, 0.85);
+        text-align: center;
+      }
+    }
+    &-cloudy-morning {
+      background-image: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.15),
+          rgba(255, 255, 255, 0.15)
+        ),
+        url("/images/cloudy-am.jpg");
+      background-position: center;
+      background-size: cover;
+      color: rgba(0, 0, 0, 1);
+      input {
+        color: rgba(0, 0, 0, 1);
+        text-align: center;
+      }
+    }
+    &-rainy-night {
+      background-image: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.05),
+          rgba(255, 255, 255, 0.05)
+        ),
+        url("/images/rainy-pm.jpg");
+      background-position: center;
+      background-size: cover;
+      color: rgba(255, 255, 255, 0.75);
+      input {
+        color: rgba(255, 255, 255, 0.75);
+        text-align: center;
+      }
+    }
+    &-rainy-morning {
+      background-image: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.15),
+          rgba(255, 255, 255, 0.15)
+        ),
+        url("/images/rainy-am.jpg");
+      background-position: center;
+      background-size: cover;
+      color: rgba(0, 0, 0, 1);
+      input {
+        color: rgba(0, 0, 0, 1);
+        text-align: center;
+      }
+    }
+    &-night {
+      background-image: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.15),
+          rgba(255, 255, 255, 0.15)
+        ),
+        url("/images/night.jpg");
+      background-position: center;
+      background-size: cover;
+      color: rgba(255, 255, 255, 0.75);
+      input {
+        color: rgba(255, 255, 255, 0.75);
+        text-align: center;
+      }
+    }
+    &-sunny {
+      background-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.15),
+          rgba(0, 0, 0, 0.15)
+        ),
+        url("/images/sunny.jpg");
+      background-position: center;
+      background-size: cover;
+      color: rgba(255, 255, 255, 1);
+      input {
+        color: rgba(255, 255, 255, 1);
+        text-align: center;
+      }
+    }
+    &-fog {
+      background-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.15),
+          rgba(0, 0, 0, 0.15)
+        ),
+        url("/images/fog.jpg");
+      background-position: center;
+      background-size: cover;
+      color: rgba(0, 0, 0, 1);
+      input {
+        color: rgba(0, 0, 0, 1);
+        text-align: center;
+      }
+    }
+  }
+}
