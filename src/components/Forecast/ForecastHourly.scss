@@ -6,10 +6,11 @@
   width: 128px;
   display: flex;
   flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.5);
-  margin-right: 0px;
+  background-color: rgba(255, 255, 255, 0.55);
+  color: black;
+  margin-right: 8px;
   @media only screen and (min-width: 768px) {
-    margin-right: 8px;
+    margin-right: 24px;
   }
   &-time {
     font-size: 1.3rem;

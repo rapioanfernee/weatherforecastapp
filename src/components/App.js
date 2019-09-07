@@ -11,10 +11,12 @@ import Forecast from "./Forecast/Forecast";
 
 class App extends React.Component {
   state = {
-    forecastData: null
+    forecastData: null,
+    refresh: 0
   };
 
   componentDidMount() {
+    this.interval = setInterval(() => this.refresh(), 10000);
     navigator.geolocation.getCurrentPosition(this.props.setCurrentLocation);
   }
 
@@ -22,6 +24,10 @@ class App extends React.Component {
     if (prevProps.location !== this.props.location) {
       this.props.fetchForecastCurrentLocation(this.props.location);
     }
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   getCurrentPosition = position => {
@@ -61,6 +67,13 @@ class App extends React.Component {
     }
   };
 
+  refresh = () => {
+    this.setState(prevState => ({
+      ...prevState,
+      refresh: prevState.refresh + 1
+    }));
+  };
+
   render() {
     const formProps = {
       onFormSubmit: this.onFormSubmit
@@ -74,11 +87,12 @@ class App extends React.Component {
     return (
       <div className="container">
         {this.props.forecast.currently ? (
-          <div
-            className={`container-app container-app-${this.setForecastClass(
-              this.props.forecast.currently.icon
-            )}`}
-          >
+          // <div
+          //   className={`container-app container-app-${this.setForecastClass(
+          //     this.props.forecast.currently.icon
+          //   )}`}
+          // >
+          <div className={`container-app container-app-rainy-night`}>
             <Forecast {...forecastProps} />
             <LocationForm {...formProps} />
           </div>

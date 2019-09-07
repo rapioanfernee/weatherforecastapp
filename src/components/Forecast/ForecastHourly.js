@@ -30,8 +30,6 @@ const ForecastHourly = props => {
     if (hour >= 13) {
       hour = hour - 12;
       return hour.toString() + "PM";
-    } else if (hour === 0) {
-      return "12AM";
     } else if (hour <= 11) {
       return hour.toString() + "AM";
     } else if (hour === 12) {

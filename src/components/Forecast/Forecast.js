@@ -7,9 +7,23 @@ import ForecastHourly from "./ForecastHourly";
 
 class Forecast extends React.Component {
   renderHourly = data => {
-    return data.map((forecastData, index) => {
-      return <ForecastHourly key={index} {...forecastData} />;
+    let newData = [];
+    let newArray = [];
+
+    data.forEach((forecastData, index) => {
+      const newDate = new Date(forecastData.time * 1000);
+
+      if (newDate.getHours() !== 0) {
+        newArray.push(forecastData);
+      } else {
+        newData.push(newArray);
+        newArray = [];
+
+        newArray.push(forecastData);
+      }
     });
+
+    return newData;
   };
 
   render() {
@@ -27,9 +41,16 @@ class Forecast extends React.Component {
         ) : (
           ""
         )}
-        <div className="forecast-hourly-container">
-          {this.renderHourly(this.props.forecastData.hourly.data)}
-        </div>
+
+        {this.renderHourly(this.props.forecastData.hourly.data).map(
+          (hourlydata, index) => (
+            <div key={index} className="forecast-hourly-container">
+              {hourlydata.map((data, index) => (
+                <ForecastHourly key={index} {...data} />
+              ))}
+            </div>
+          )
+        )}
       </div>
     );
   }
