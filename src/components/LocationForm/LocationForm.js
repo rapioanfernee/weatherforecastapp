@@ -71,7 +71,9 @@ class LocationForm extends React.Component {
           googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_MAP_KEY}`}
           loadingElement={<div className="loadingElement googlemap" />}
           containerElement={<div className="containerElement googlemap" />}
-          mapElement={<div className="mapElement" style={{ height: "100%" }} />}
+          mapElement={
+            <div className="mapElement googlemap" style={{ height: "100%" }} />
+          }
           isMarkerShown
         ></GoogleMapsComponent>
       </div>

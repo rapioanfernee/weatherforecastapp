@@ -68,6 +68,12 @@ const ForecastCurrent = props => {
       <span className="forecast-current-timezone">
         {props.timezone.toString().replace("_", " ")}
       </span>
+      <span className="forecast-current-latlong">Lat: {props.latitude}</span>
+      <span className="forecast-current-latlong">Long: {props.longitude}</span>
+
+      <span className="forecast-current-note">
+        (Scroll to bottom part for the maps)
+      </span>
     </div>
   );
 };

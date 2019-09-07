@@ -1,5 +1,5 @@
 .locationform {
-  margin-bottom: 64px;
+  margin-bottom: 32px;
   display: flex;
   max-width: 1024px;
   width: 100%;
@@ -13,6 +13,9 @@
     .containerElement {
       width: 100%;
     }
+  }
+  .google-search-form {
+    background: white;
   }
   .loadingElement {
     padding: 0 8px;
@@ -46,10 +49,6 @@
       width: 50%;
       align-self: center;
       font-family: "Montserrat", sans-serif;
-    }
-
-    .googlemap-form {
-      background: white;
     }
   }
 }

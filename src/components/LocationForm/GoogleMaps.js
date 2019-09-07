@@ -90,7 +90,7 @@ class GoogleMapComponent extends React.Component {
           <form
             style={{
               background: "rgba(200,200,200, 0.9)",
-              width: "35%",
+
               padding: 16,
               display: "flex",
               flexDirection: "column",
@@ -98,12 +98,13 @@ class GoogleMapComponent extends React.Component {
               height: 95,
               marginLeft: 8
             }}
+            className="google-search-form"
           >
-            <label style={{ fontSize: "0.8rem" }}>
+            <label style={{ fontSize: "0.7rem" }}>
               Location. Search for a place to determine weather forecast.
             </label>
-            <label style={{ fontSize: "0.8rem" }}>Example: SM Megamall</label>
-            <label style={{ fontSize: "0.8rem" }}>Example: 14.5, 121.5</label>
+            <label style={{ fontSize: "0.7rem" }}>Example: SM Megamall</label>
+            <label style={{ fontSize: "0.7rem" }}>Example: 14.5, 121.5</label>
 
             <input
               type="text"
@@ -113,14 +114,15 @@ class GoogleMapComponent extends React.Component {
                 border: `1px solid transparent`,
                 width: `100%`,
                 height: `32px`,
-                marginTop: `27px`,
+                marginTop: `8px`,
                 padding: `0 12px`,
                 borderRadius: `3px`,
                 boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
                 fontSize: `14px`,
                 outline: `none`,
                 textOverflow: `ellipses`,
-                zIndex: "5"
+                zIndex: "5",
+                padding: 4
               }}
               value={this.state.searchValue}
               onChange={this.onChangeInput}
