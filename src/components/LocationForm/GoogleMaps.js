@@ -96,7 +96,8 @@ class GoogleMapComponent extends React.Component {
               flexDirection: "column",
               borderRadius: "4px",
               height: 95,
-              marginLeft: 8
+              marginLeft: 8,
+              color: "black"
             }}
             className="google-search-form"
           >
