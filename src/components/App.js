@@ -87,12 +87,12 @@ class App extends React.Component {
     return (
       <div className="container">
         {this.props.forecast.currently ? (
-          // <div
-          //   className={`container-app container-app-${this.setForecastClass(
-          //     this.props.forecast.currently.icon
-          //   )}`}
-          // >
-          <div className={`container-app container-app-rainy-night`}>
+          <div
+            className={`container-app container-app-${this.setForecastClass(
+              this.props.forecast.currently.icon
+            )}`}
+          >
+            {/* // <div className={`container-app container-app-rainy-night`}> */}
             <Forecast {...forecastProps} />
             <LocationForm {...formProps} />
           </div>
