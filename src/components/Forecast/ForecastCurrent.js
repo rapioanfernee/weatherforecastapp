@@ -31,16 +31,21 @@ const ForecastCurrent = props => {
 
   const formatHour = date => {
     let hour = date.getHours();
-    const minutes = date.getMinutes();
+    let minutes = date.getMinutes();
+    if (minutes < 10) {
+      minutes = "0" + minutes.toString();
+    } else {
+      minutes = minutes.toString();
+    }
     if (hour >= 13) {
       hour = hour - 12;
-      return hour.toString() + ":" + minutes.toString() + " PM";
+      return hour.toString() + ":" + minutes + " PM";
     } else if (hour === 0) {
       return "12" + minutes.toString() + " AM";
     } else if (hour <= 11) {
-      return hour.toString() + ":" + minutes.toString() + " AM";
+      return hour.toString() + ":" + minutes + " AM";
     } else if (hour === 12) {
-      return "12" + ":" + minutes.toString() + " PM";
+      return "12" + ":" + minutes + " PM";
     }
   };
 
