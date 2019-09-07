@@ -1,6 +1,7 @@
 ## Instructions
 
 -To run this web application, please enable accessing of location.
+
 -For mobile devices, please enable GPS to access location
 
 ## Environment Variables
@@ -22,10 +23,15 @@ Go to https://darksky.net/dev then sign up. After confirmation, you will be give
 ### Google Map Key
 
 Go to http://console.cloud.google.com/ then log-in with your Google account. On the dashboard, click the dropdown menu next to the Google Cloud Platform text in the header and choose New Project. After creating one, navigate to the project dashboard. Click the Library nav on the left then search and enable the following
+
  - Maps Javascript API
+ 
  - Places API
+ 
  - Directions API
+ 
  - Geocoding API
+ 
  - Geolocation API
  
  After adding the APIs, navgiate to the credentials link on the left navbar then click the "create credentials" button. Copy the generated key and paste it on the .env file created in the root directory
