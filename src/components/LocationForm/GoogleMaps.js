@@ -123,7 +123,8 @@ class GoogleMapComponent extends React.Component {
                 outline: `none`,
                 textOverflow: `ellipses`,
                 zIndex: "5",
-                padding: 4
+                padding: 4,
+                color: "black"
               }}
               value={this.state.searchValue}
               onChange={this.onChangeInput}
