@@ -1,10 +1,9 @@
 import { combineReducers } from "redux";
 
-import dateReducer from "./dateReducer";
-
 import forecastReducer from "./forecastReducer";
+import locationReducer from "./locationReducer";
 
 export default combineReducers({
-  date: dateReducer,
-  forecast: forecastReducer
+  forecast: forecastReducer,
+  location: locationReducer
 });

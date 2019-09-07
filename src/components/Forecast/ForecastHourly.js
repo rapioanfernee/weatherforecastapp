@@ -6,33 +6,24 @@ const ForecastHourly = props => {
     return ((temp - 32) * (5 / 9)).toFixed(2);
   };
 
-  const setForecastClass = status => {
-    switch (status) {
-      case "clear-day": {
-        return "sunny";
-      }
-      case "clear-night": {
-        return "night";
-      }
-      case "rain": {
-        return "rainy-night";
-      }
-      case "partly-cloudy-day": {
-        return "cloudy-morning";
-      }
-      case "cloudy": {
-        return "cloudy-morning";
-      }
-      case "partly-cloudy-night": {
-        return "cloudy-night";
-      }
-      case "fog": {
-        return "fog";
-      }
-      default: {
-        return "";
-      }
-    }
+  const formatMonth = date => {
+    let month = date.getMonth();
+    const months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
+    ];
+
+    return months[month];
   };
 
   const formatHour = hour => {
@@ -47,15 +38,21 @@ const ForecastHourly = props => {
       return "12PM";
     }
   };
-  console.log(props);
+
+  const currentDate = new Date(props.time * 1000);
   return (
     <div className="forecast-hourly">
       <div>
-        <span className="forecast-hourly-time">{formatHour(props.hour)}</span>
+        <span className="forecast-hourly-time">
+          {formatHour(currentDate.getHours())}
+        </span>
         <span className="forecast-hourly-temperature">
           {convertToCelsius(props.apparentTemperature)} °C
         </span>
       </div>
+      <span className="forecast-hourly-date">
+        {formatMonth(currentDate)} {currentDate.getDate()}
+      </span>
       <span className="forecast-hourly-rain">
         {(props.precipProbability * 100).toFixed(2)}% chance to{" "}
         {props.precipType}

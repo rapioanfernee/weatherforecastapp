@@ -7,14 +7,8 @@ import ForecastHourly from "./ForecastHourly";
 
 class Forecast extends React.Component {
   renderHourly = data => {
-    let currentHour = this.props.currentDate.currentHour;
-
     return data.map((forecastData, index) => {
-      currentHour = currentHour + 1;
-      if (currentHour > 23) {
-        currentHour = currentHour - 24;
-      }
-      return <ForecastHourly {...forecastData} hour={currentHour} />;
+      return <ForecastHourly key={index} {...forecastData} />;
     });
   };
 

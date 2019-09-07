@@ -1,15 +1,40 @@
 .locationform {
-  max-width: 250px;
-  max-height: 150px;
-  background-color: transparent;
-  border-radius: 4px;
-  height: 90%;
-  width: 90%;
-  padding: 32px;
-  // margin: 32px 0;
+  margin-bottom: 64px;
+  display: flex;
+  max-width: 1024px;
+  width: 100%;
+  justify-content: space-evenly;
+  flex-direction: column;
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+    .loadingElement {
+      width: 100%;
+    }
+    .containerElement {
+      width: 100%;
+    }
+  }
+  .loadingElement {
+    padding: 0 8px;
+    height: 400px;
+    border-radius: 4px;
+  }
+  .containerElement {
+    padding: 0 8px;
+    height: 400px;
+    border-radius: 4px;
+  }
   &-container {
+    margin-right: 8px;
+    max-width: 250px;
+    max-height: 150px;
+    background-color: rgba(255, 255, 255, 0.75s);
+    border-radius: 4px;
+    padding: 32px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 16px;
+
     input {
       background: transparent;
       margin-bottom: 32px;
@@ -21,6 +46,10 @@
       width: 50%;
       align-self: center;
       font-family: "Montserrat", sans-serif;
+    }
+
+    .googlemap-form {
+      background: white;
     }
   }
 }

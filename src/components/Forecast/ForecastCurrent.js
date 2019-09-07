@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import { connect } from "react-redux";
 
@@ -9,18 +9,42 @@ const ForecastCurrent = props => {
     return ((temp - 32) * (5 / 9)).toFixed(2);
   };
 
-  const formatHour = hour => {
+  const formatMonth = date => {
+    let month = date.getMonth();
+    const months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
+    ];
+
+    return months[month];
+  };
+
+  const formatHour = date => {
+    let hour = date.getHours();
+    const minutes = date.getMinutes();
     if (hour >= 13) {
       hour = hour - 12;
-      return hour.toString() + "PM";
+      return hour.toString() + ":" + minutes.toString() + " PM";
     } else if (hour === 0) {
-      return "12AM";
+      return "12" + minutes.toString() + " AM";
     } else if (hour <= 11) {
-      return hour.toString() + "AM";
+      return hour.toString() + ":" + minutes.toString() + " AM";
     } else if (hour === 12) {
-      return "12PM";
+      return "12" + ":" + minutes.toString() + " PM";
     }
   };
+
+  const currentDate = new Date(props.time * 1000);
 
   return (
     <div className={`forecast-current`}>
@@ -29,10 +53,10 @@ const ForecastCurrent = props => {
       </span>
       <div className="forecast-current-date">
         <span className="forecast-current-date-hour">
-          {formatHour(props.date.currentHour)}
+          {formatHour(currentDate)}
         </span>{" "}
         <span className="forecast-current-date-month">
-          {props.date.currentMonth} {props.date.currentDate}
+          {formatMonth(currentDate)} {currentDate.getDate()}
         </span>
       </div>
 

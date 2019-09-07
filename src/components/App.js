@@ -2,11 +2,9 @@ import React from "react";
 import "./App.scss";
 import { connect } from "react-redux";
 
-import darkskyAPI from "../apis/darkskyAPI";
-import {
-  fetchForecastCurrentLocation,
-  fetchForecastSpecifiedLocation
-} from "../actions/forecast";
+import { fetchForecastCurrentLocation } from "../actions/forecast";
+
+import { setCurrentLocation, setSpecifiedLocation } from "../actions/location";
 
 import LocationForm from "./LocationForm/LocationForm";
 import Forecast from "./Forecast/Forecast";
@@ -17,18 +15,21 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    navigator.geolocation.getCurrentPosition(this.getCurrentPosition);
+    navigator.geolocation.getCurrentPosition(this.props.setCurrentLocation);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.location !== this.props.location) {
+      this.props.fetchForecastCurrentLocation(this.props.location);
+    }
   }
 
   getCurrentPosition = position => {
     this.props.fetchForecastCurrentLocation(position.coords);
   };
 
-  onFormSubmit = (lat, lng) => {
-    this.props.fetchForecastSpecifiedLocation({
-      latitude: lat,
-      longitude: lng
-    });
+  onFormSubmit = (latitude, longitude) => {
+    this.props.setSpecifiedLocation({ latitude, longitude });
   };
 
   setForecastClass = status => {
@@ -50,6 +51,9 @@ class App extends React.Component {
       }
       case "fog": {
         return "fog";
+      }
+      case "cloudy": {
+        return "cloudy-morning";
       }
       default: {
         return "";
@@ -87,11 +91,16 @@ class App extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  date: state.date,
+  location: state.location,
   forecast: state.forecast
 });
 
 export default connect(
   mapStateToProps,
-  { fetchForecastCurrentLocation, fetchForecastSpecifiedLocation }
+  {
+    fetchForecastCurrentLocation,
+
+    setCurrentLocation,
+    setSpecifiedLocation
+  }
 )(App);
