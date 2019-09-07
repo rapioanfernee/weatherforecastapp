@@ -1,3 +1,7 @@
+## Deployed Application
+
+Check-out the deployed website by going to [https://rapioanfernee.github.io/weatherforecastapp/](https://rapioanfernee.github.io/weatherforecastapp/)
+
 ## Instructions
 
 -To run this web application, please enable accessing of location.
